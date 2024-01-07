@@ -2,9 +2,18 @@
 	import '@aircss/air';
 
 	import Modal from '$lib/modal.svelte';
+	import Dispatch from './dispatch.svelte';
 
-	let modal;
+	let modal: Modal;
 	let params: { email: string };
+
+	function imperative() {
+		modal.show({ value: 'value@func' });
+	}
+
+    function emptyrative() {
+		modal.show();
+	}
 
 	$: console.log(params);
 </script>
@@ -35,4 +44,10 @@
 	</div>
 </Modal>
 
-<button on:click={modal.show}>Show</button>
+<button on:click={modal.show}>Direct event</button>
+<button data-value="value@attr" on:click={modal.show}>Direct event w/ value</button>
+
+<button on:click={emptyrative}>Call function</button>
+<button on:click={imperative}>Call function w/ value</button>
+
+<Dispatch on:nosignal={modal.show} on:signal={modal.show} />

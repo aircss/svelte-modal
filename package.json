@@ -1,6 +1,6 @@
 {
 	"name": "@aircss/svelte-modal",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"description": "A simple modal dialog based on aircss and svelte.",
 	"author": "Morgan Delahaye <morgan.delahaye@tutanota.com>",
 	"repository": "aircss/svelte-modal",
