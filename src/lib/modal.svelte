@@ -8,21 +8,29 @@
 
 	export { _class as class };
 	export let id: string | undefined = undefined;
+	export let params: unknown = undefined;
 
-	export function show() {
+	export function show(this: HTMLElement, payload: unknown) {
+		const detail = { ...(this.dataset || payload) };
+
+		if (Object.keys(detail).length !== 0) {
+			params = detail
+		}
+
 		visible = true;
-		dispatch('show');
+		dispatch('show', params);
 	}
 
-	export function close(this: HTMLButtonElement, rv: any) {
-		const detail = this?.dataset.value || rv;
+	export function close(this: HTMLButtonElement, payload: unknown) {
+		const detail = { ...(this.dataset || payload) };
+
 		visible = false;
-		if (detail) {
-			dispatch('success', detail);
-			dispatch('close', detail);
-		} else {
+		if (Object.keys(detail).length === 0) {
 			dispatch('cancel');
 			dispatch('close');
+		} else {
+			dispatch('success', detail);
+			dispatch('close', detail);
 		}
 	}
 </script>
@@ -31,7 +39,7 @@
 	<div {id} class="fixed flex top left w-100 h-100 z-999 evenly-spaced" aria-hidden="true">
 		<div class="center">
 			<div class={_class}>
-				<slot />
+				<slot {params} />
 			</div>
 		</div>
 	</div>
