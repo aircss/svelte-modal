@@ -9,7 +9,13 @@
 	$: console.log(params);
 </script>
 
-<Modal bind:this={modal} class="w6 ba bg--white" on:success={console.log} on:cancel={console.warn} bind:params>
+<Modal
+	bind:this={modal}
+	class="w6 ba bg--white"
+	on:success={console.log}
+	on:cancel={console.warn}
+	bind:params
+>
 	<h2 class="ma0 pa4 bb b--noir-20">Confirm</h2>
 
 	<div class="ph4">

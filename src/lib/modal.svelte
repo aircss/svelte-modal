@@ -14,7 +14,7 @@
 		const detail = { ...(this.dataset || payload) };
 
 		if (Object.keys(detail).length !== 0) {
-			params = detail
+			params = detail;
 		}
 
 		visible = true;

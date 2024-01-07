@@ -55,23 +55,23 @@ The following example is a page with a basic "two-buttons" confirmation dialog a
 ### Methods
 
 - **`show(payload: unknown)`**: make the modal visible and set its `params` prop with the passed argument.
-  If the method is called by an HTML event (like a click on a button element), ``show()`` will use the
+  If the method is called by an HTML event (like a click on a button element), `show()` will use the
   data attributes of the event target if there is any.
 
 - **`close(payload: unknown)`**: make the modal disappear. The custom event triggered by closing the
-  modal will use the payload as its ``detail``. If the method is called by an HTML event (like a click
-  on a button element), ``close()`` will use the data attributes of the event target if there is any.
+  modal will use the payload as its `detail`. If the method is called by an HTML event (like a click
+  on a button element), `close()` will use the data attributes of the event target if there is any.
 
 ### Events
 
-- **`show`**: this event is fired anytime the modal is made visible. ``event.detail`` holds the
-``params`` argument of the _ad-hoc_ method if set.
+- **`show`**: this event is fired anytime the modal is made visible. `event.detail` holds the
+  `params` argument of the _ad-hoc_ method if set.
 
-- **`close`**: this event is fired anytime the modal disappears. ``event.detail`` holds the
-``payload`` of the _ad-hoc_ method if set _(through method args or data attributes of the event target)_.
+- **`close`**: this event is fired anytime the modal disappears. `event.detail` holds the
+  `payload` of the _ad-hoc_ method if set _(through method args or data attributes of the event target)_.
 
-- **`success`**: this event is fired when the modal disappears and if the ``close()`` method has
+- **`success`**: this event is fired when the modal disappears and if the `close()` method has
   a payload _(through method args or data attributes of the event target)_.
 
-- **`cancel`**: this event is fired when the modal disappears and if the ``close()`` method has
+- **`cancel`**: this event is fired when the modal disappears and if the `close()` method has
   no payload _(through method args or data attributes of the event target)_.
